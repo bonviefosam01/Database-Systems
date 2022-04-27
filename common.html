@@ -1,0 +1,33 @@
+<style>
+  html, body {
+    min-height: 100vh;
+    width: 100%;
+  }
+  body {
+    margin: auto;
+    max-width: 50em;
+  }
+  table {
+    border-collapse: collapse;
+    margin: auto;
+  }
+  td {
+    border-top: 1px solid black;
+    padding: 0 1em;
+  }
+</style>
+<h1>Bird Common Names</h1>
+{% if q %}
+<p>
+Query sent to database:
+<pre><code>{{ q }}</code></pre>
+</p>
+{% endif %}
+{% if r %}
+  <table>
+    <tr><th>Common Name</th></tr>
+    {% for row in r %}
+      <tr><td>{{ row[1] }}</td></tr>
+    {% endfor %}
+  </table>
+{% endif %}
